@@ -4,12 +4,12 @@
 
 ## 📋 部署方案对比
 
-| 方案 | 优点 | 缺点 | 推荐场景 |
-|------|------|------|----------|
-| **Docker Compose** ⭐ | 一键部署、环境隔离、易迁移、易升级 | 需要安装 Docker | **推荐**：大多数场景 |
-| **直接部署** | 简单直接、无额外依赖 | 环境依赖、迁移麻烦 | 临时测试 |
-| **Systemd 服务** | 系统级管理、开机自启 | 配置繁琐 | 长期稳定运行 |
-| **Supervisor** | 进程管理、自动重启 | 需要额外安装 | 多进程管理 |
+| 方案                 | 优点                               | 缺点               | 推荐场景             |
+| -------------------- | ---------------------------------- | ------------------ | -------------------- |
+| **Docker Compose** ⭐ | 一键部署、环境隔离、易迁移、易升级 | 需要安装 Docker    | **推荐**：大多数场景 |
+| **直接部署**         | 简单直接、无额外依赖               | 环境依赖、迁移麻烦 | 临时测试             |
+| **Systemd 服务**     | 系统级管理、开机自启               | 配置繁琐           | 长期稳定运行         |
+| **Supervisor**       | 进程管理、自动重启                 | 需要额外安装       | 多进程管理           |
 
 **结论：推荐使用 Docker Compose，迁移最快最方便！**
 
@@ -182,20 +182,20 @@ journalctl -u stock-analyzer -f
 
 ### 必须配置项
 
-| 配置项 | 说明 | 获取方式 |
-|--------|------|----------|
-| `GEMINI_API_KEY` | AI 分析必需 | [Google AI Studio](https://aistudio.google.com/) |
-| `STOCK_LIST` | 自选股列表 | 逗号分隔的股票代码 |
-| `WECHAT_WEBHOOK_URL` | 微信推送 | 企业微信群机器人 |
+| 配置项               | 说明        | 获取方式                                         |
+| -------------------- | ----------- | ------------------------------------------------ |
+| `GEMINI_API_KEY`     | AI 分析必需 | [Google AI Studio](https://aistudio.google.com/) |
+| `STOCK_LIST`         | 自选股列表  | 逗号分隔的股票代码                               |
+| `WECHAT_WEBHOOK_URL` | 微信推送    | 企业微信群机器人                                 |
 
 ### 可选配置项
 
-| 配置项 | 默认值 | 说明 |
-|--------|--------|------|
-| `SCHEDULE_ENABLED` | `false` | 是否启用定时任务 |
-| `SCHEDULE_TIME` | `18:00` | 每日执行时间 |
-| `MARKET_REVIEW_ENABLED` | `true` | 是否启用大盘复盘 |
-| `TAVILY_API_KEYS` | - | 新闻搜索（可选） |
+| 配置项                  | 默认值  | 说明             |
+| ----------------------- | ------- | ---------------- |
+| `SCHEDULE_ENABLED`      | `false` | 是否启用定时任务 |
+| `SCHEDULE_TIME`         | `19:00` | 每日执行时间     |
+| `MARKET_REVIEW_ENABLED` | `true`  | 是否启用大盘复盘 |
+| `TAVILY_API_KEYS`       | -       | 新闻搜索（可选） |
 
 ---
 
@@ -346,23 +346,23 @@ git push -u origin main
 
 添加以下 Secrets：
 
-| Secret 名称 | 说明 | 必填 |
-|------------|------|------|
-| `GEMINI_API_KEY` | Gemini AI API Key | ✅ |
-| `WECHAT_WEBHOOK_URL` | 企业微信机器人 Webhook | 可选* |
-| `FEISHU_WEBHOOK_URL` | 飞书机器人 Webhook | 可选* |
-| `TELEGRAM_BOT_TOKEN` | Telegram Bot Token | 可选* |
-| `TELEGRAM_CHAT_ID` | Telegram Chat ID | 可选* |
-| `TELEGRAM_MESSAGE_THREAD_ID` | Telegram Topic ID | 可选* |
-| `EMAIL_SENDER` | 发件人邮箱 | 可选* |
-| `EMAIL_PASSWORD` | 邮箱授权码 | 可选* |
-| `SERVERCHAN3_SENDKEY` | Server酱³ Sendkey | 可选* |
-| `CUSTOM_WEBHOOK_URLS` | 自定义 Webhook（多个逗号分隔） | 可选* |
-| `STOCK_LIST` | 自选股列表，如 `600519,300750` | ✅ |
-| `TAVILY_API_KEYS` | Tavily 搜索 API Key | 推荐 |
-| `SERPAPI_API_KEYS` | SerpAPI Key | 可选 |
-| `TUSHARE_TOKEN` | Tushare Token | 可选 |
-| `GEMINI_MODEL` | 模型名称（默认 gemini-2.0-flash） | 可选 |
+| Secret 名称                  | 说明                              | 必填  |
+| ---------------------------- | --------------------------------- | ----- |
+| `GEMINI_API_KEY`             | Gemini AI API Key                 | ✅     |
+| `WECHAT_WEBHOOK_URL`         | 企业微信机器人 Webhook            | 可选* |
+| `FEISHU_WEBHOOK_URL`         | 飞书机器人 Webhook                | 可选* |
+| `TELEGRAM_BOT_TOKEN`         | Telegram Bot Token                | 可选* |
+| `TELEGRAM_CHAT_ID`           | Telegram Chat ID                  | 可选* |
+| `TELEGRAM_MESSAGE_THREAD_ID` | Telegram Topic ID                 | 可选* |
+| `EMAIL_SENDER`               | 发件人邮箱                        | 可选* |
+| `EMAIL_PASSWORD`             | 邮箱授权码                        | 可选* |
+| `SERVERCHAN3_SENDKEY`        | Server酱³ Sendkey                 | 可选* |
+| `CUSTOM_WEBHOOK_URLS`        | 自定义 Webhook（多个逗号分隔）    | 可选* |
+| `STOCK_LIST`                 | 自选股列表，如 `600519,300750`    | ✅     |
+| `TAVILY_API_KEYS`            | Tavily 搜索 API Key               | 推荐  |
+| `SERPAPI_API_KEYS`           | SerpAPI Key                       | 可选  |
+| `TUSHARE_TOKEN`              | Tushare Token                     | 可选  |
+| `GEMINI_MODEL`               | 模型名称（默认 gemini-2.0-flash） | 可选  |
 
 > *注：通知渠道至少配置一个，支持多渠道同时推送
 
@@ -395,22 +395,22 @@ git push
 
 ### 定时说明
 
-默认配置：**周一到周五，北京时间 18:00** 自动执行
+默认配置：**周一到周五，北京时间 19:00** 自动执行
 
 修改时间：编辑 `.github/workflows/daily_analysis.yml` 中的 cron 表达式：
 
 ```yaml
 schedule:
-  - cron: '0 10 * * 1-5'  # UTC 时间，+8 = 北京时间
+  - cron: '0 11 * * 1-5'  # UTC 时间，+8 = 北京时间
 ```
 
 常用 cron 示例：
-| 表达式 | 说明 |
-|--------|------|
-| `'0 10 * * 1-5'` | 周一到周五 18:00（北京时间） |
+| 表达式           | 说明                         |
+| ---------------- | ---------------------------- |
+| `'0 11 * * 1-5'` | 周一到周五 19:00（北京时间） |
 | `'30 7 * * 1-5'` | 周一到周五 15:30（北京时间） |
-| `'0 10 * * *'` | 每天 18:00（北京时间） |
-| `'0 2 * * 1-5'` | 周一到周五 10:00（北京时间） |
+| `'0 11 * * *'`   | 每天 19:00（北京时间）       |
+| `'0 2 * * 1-5'`  | 周一到周五 10:00（北京时间） |
 
 ### 修改自选股
 

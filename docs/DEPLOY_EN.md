@@ -4,12 +4,12 @@ This document explains how to deploy the AI Stock Analysis System to a server.
 
 ## Deployment Options Comparison
 
-| Option | Pros | Cons | Recommended For |
-|------|------|------|----------|
-| **Docker Compose** ⭐ | One-click deploy, isolated environment, easy migration, easy upgrade | Requires Docker installation | **Recommended**: Most scenarios |
-| **Direct Deployment** | Simple, no extra dependencies | Environment dependencies, migration difficulties | Temporary testing |
-| **Systemd Service** | System-level management, auto-start on boot | Complex configuration | Long-term stable operation |
-| **Supervisor** | Process management, auto-restart | Requires additional installation | Multi-process management |
+| Option                | Pros                                                                 | Cons                                             | Recommended For                 |
+| --------------------- | -------------------------------------------------------------------- | ------------------------------------------------ | ------------------------------- |
+| **Docker Compose** ⭐  | One-click deploy, isolated environment, easy migration, easy upgrade | Requires Docker installation                     | **Recommended**: Most scenarios |
+| **Direct Deployment** | Simple, no extra dependencies                                        | Environment dependencies, migration difficulties | Temporary testing               |
+| **Systemd Service**   | System-level management, auto-start on boot                          | Complex configuration                            | Long-term stable operation      |
+| **Supervisor**        | Process management, auto-restart                                     | Requires additional installation                 | Multi-process management        |
 
 **Conclusion: Docker Compose is recommended for the fastest and most convenient migration!**
 
@@ -182,20 +182,20 @@ journalctl -u stock-analyzer -f
 
 ### Required Configuration
 
-| Config Item | Description | How to Get |
-|--------|------|----------|
-| `GEMINI_API_KEY` | Required for AI analysis | [Google AI Studio](https://aistudio.google.com/) |
-| `STOCK_LIST` | Watchlist | Comma-separated stock codes |
-| `WECHAT_WEBHOOK_URL` | WeChat push | WeChat Work group bot |
+| Config Item          | Description              | How to Get                                       |
+| -------------------- | ------------------------ | ------------------------------------------------ |
+| `GEMINI_API_KEY`     | Required for AI analysis | [Google AI Studio](https://aistudio.google.com/) |
+| `STOCK_LIST`         | Watchlist                | Comma-separated stock codes                      |
+| `WECHAT_WEBHOOK_URL` | WeChat push              | WeChat Work group bot                            |
 
 ### Optional Configuration
 
-| Config Item | Default | Description |
-|--------|--------|------|
-| `SCHEDULE_ENABLED` | `false` | Enable scheduled tasks |
-| `SCHEDULE_TIME` | `18:00` | Daily execution time |
-| `MARKET_REVIEW_ENABLED` | `true` | Enable market review |
-| `TAVILY_API_KEYS` | - | News search (optional) |
+| Config Item             | Default | Description            |
+| ----------------------- | ------- | ---------------------- |
+| `SCHEDULE_ENABLED`      | `false` | Enable scheduled tasks |
+| `SCHEDULE_TIME`         | `19:00` | Daily execution time   |
+| `MARKET_REVIEW_ENABLED` | `true`  | Enable market review   |
+| `TAVILY_API_KEYS`       | -       | News search (optional) |
 
 ---
 
@@ -346,23 +346,23 @@ Go to repo page → **Settings** → **Secrets and variables** → **Actions** �
 
 Add these Secrets:
 
-| Secret Name | Description | Required |
-|------------|------|------|
-| `GEMINI_API_KEY` | Gemini AI API Key | ✅ |
-| `WECHAT_WEBHOOK_URL` | WeChat Work Bot Webhook | Optional* |
-| `FEISHU_WEBHOOK_URL` | Feishu Bot Webhook | Optional* |
-| `TELEGRAM_BOT_TOKEN` | Telegram Bot Token | Optional* |
-| `TELEGRAM_CHAT_ID` | Telegram Chat ID | Optional* |
-| `TELEGRAM_MESSAGE_THREAD_ID` | Telegram Topic ID | Optional* |
-| `EMAIL_SENDER` | Sender email | Optional* |
-| `EMAIL_PASSWORD` | Email authorization code | Optional* |
-| `SERVERCHAN3_SENDKEY` | ServerChan v3 Sendkey | Optional* |
-| `CUSTOM_WEBHOOK_URLS` | Custom Webhook (comma-separated for multiple) | Optional* |
-| `STOCK_LIST` | Watchlist, e.g., `600519,300750` | ✅ |
-| `TAVILY_API_KEYS` | Tavily Search API Key | Recommended |
-| `SERPAPI_API_KEYS` | SerpAPI Key | Optional |
-| `TUSHARE_TOKEN` | Tushare Token | Optional |
-| `GEMINI_MODEL` | Model name (default gemini-2.0-flash) | Optional |
+| Secret Name                  | Description                                   | Required    |
+| ---------------------------- | --------------------------------------------- | ----------- |
+| `GEMINI_API_KEY`             | Gemini AI API Key                             | ✅           |
+| `WECHAT_WEBHOOK_URL`         | WeChat Work Bot Webhook                       | Optional*   |
+| `FEISHU_WEBHOOK_URL`         | Feishu Bot Webhook                            | Optional*   |
+| `TELEGRAM_BOT_TOKEN`         | Telegram Bot Token                            | Optional*   |
+| `TELEGRAM_CHAT_ID`           | Telegram Chat ID                              | Optional*   |
+| `TELEGRAM_MESSAGE_THREAD_ID` | Telegram Topic ID                             | Optional*   |
+| `EMAIL_SENDER`               | Sender email                                  | Optional*   |
+| `EMAIL_PASSWORD`             | Email authorization code                      | Optional*   |
+| `SERVERCHAN3_SENDKEY`        | ServerChan v3 Sendkey                         | Optional*   |
+| `CUSTOM_WEBHOOK_URLS`        | Custom Webhook (comma-separated for multiple) | Optional*   |
+| `STOCK_LIST`                 | Watchlist, e.g., `600519,300750`              | ✅           |
+| `TAVILY_API_KEYS`            | Tavily Search API Key                         | Recommended |
+| `SERPAPI_API_KEYS`           | SerpAPI Key                                   | Optional    |
+| `TUSHARE_TOKEN`              | Tushare Token                                 | Optional    |
+| `GEMINI_MODEL`               | Model name (default gemini-2.0-flash)         | Optional    |
 
 > *Note: Configure at least one notification channel, multiple channels supported for simultaneous push
 
@@ -395,22 +395,22 @@ git push
 
 ### Schedule Details
 
-Default configuration: **Monday to Friday, 18:00 Beijing Time** auto-execution
+Default configuration: **Monday to Friday, 19:00 Beijing Time** auto-execution
 
 Modify time: Edit cron expression in `.github/workflows/daily_analysis.yml`:
 
 ```yaml
 schedule:
-  - cron: '0 10 * * 1-5'  # UTC time, +8 = Beijing time
+  - cron: '0 11 * * 1-5'  # UTC time, +8 = Beijing time
 ```
 
 Common cron examples:
-| Expression | Description |
-|--------|------|
-| `'0 10 * * 1-5'` | Mon-Fri 18:00 (Beijing) |
+| Expression       | Description             |
+| ---------------- | ----------------------- |
+| `'0 11 * * 1-5'` | Mon-Fri 19:00 (Beijing) |
 | `'30 7 * * 1-5'` | Mon-Fri 15:30 (Beijing) |
-| `'0 10 * * *'` | Daily 18:00 (Beijing) |
-| `'0 2 * * 1-5'` | Mon-Fri 10:00 (Beijing) |
+| `'0 11 * * *'`   | Daily 19:00 (Beijing)   |
+| `'0 2 * * 1-5'`  | Mon-Fri 10:00 (Beijing) |
 
 ### Modify Watchlist
 

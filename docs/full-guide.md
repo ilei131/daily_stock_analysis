@@ -55,56 +55,56 @@ daily_stock_analysis/
 
 #### AI 模型配置（二选一）
 
-| Secret 名称 | 说明 | 必填 |
-|------------|------|:----:|
-| `GEMINI_API_KEY` | [Google AI Studio](https://aistudio.google.com/) 获取免费 Key | ✅* |
-| `OPENAI_API_KEY` | OpenAI 兼容 API Key（支持 DeepSeek、通义千问等） | 可选 |
-| `OPENAI_BASE_URL` | OpenAI 兼容 API 地址（如 `https://api.deepseek.com/v1`） | 可选 |
-| `OPENAI_MODEL` | 模型名称（如 `deepseek-chat`） | 可选 |
+| Secret 名称       | 说明                                                          | 必填  |
+| ----------------- | ------------------------------------------------------------- | :---: |
+| `GEMINI_API_KEY`  | [Google AI Studio](https://aistudio.google.com/) 获取免费 Key |  ✅*   |
+| `OPENAI_API_KEY`  | OpenAI 兼容 API Key（支持 DeepSeek、通义千问等）              | 可选  |
+| `OPENAI_BASE_URL` | OpenAI 兼容 API 地址（如 `https://api.deepseek.com/v1`）      | 可选  |
+| `OPENAI_MODEL`    | 模型名称（如 `deepseek-chat`）                                | 可选  |
 
 > *注：`GEMINI_API_KEY` 和 `OPENAI_API_KEY` 至少配置一个
 
 #### 通知渠道配置（可同时配置多个，全部推送）
 
-| Secret 名称 | 说明 | 必填 |
-|------------|------|:----:|
-| `WECHAT_WEBHOOK_URL` | 企业微信 Webhook URL | 可选 |
-| `FEISHU_WEBHOOK_URL` | 飞书 Webhook URL | 可选 |
-| `TELEGRAM_BOT_TOKEN` | Telegram Bot Token（@BotFather 获取） | 可选 |
-| `TELEGRAM_CHAT_ID` | Telegram Chat ID | 可选 |
-| `TELEGRAM_MESSAGE_THREAD_ID` | Telegram Topic ID (用于发送到子话题) | 可选 |
-| `DISCORD_WEBHOOK_URL` | Discord Webhook URL（[创建方法](https://support.discord.com/hc/en-us/articles/228383668)） | 可选 |
-| `DISCORD_BOT_TOKEN` | Discord Bot Token（与 Webhook 二选一） | 可选 |
-| `DISCORD_CHANNEL_ID` | Discord Channel ID（使用 Bot 时需要） | 可选 |
-| `EMAIL_SENDER` | 发件人邮箱（如 `xxx@qq.com`） | 可选 |
-| `EMAIL_PASSWORD` | 邮箱授权码（非登录密码） | 可选 |
-| `EMAIL_RECEIVERS` | 收件人邮箱（多个用逗号分隔，留空则发给自己） | 可选 |
-| `EMAIL_SENDER_NAME` | 发件人显示名称（默认：daily_stock_analysis股票分析助手） | 可选 |
-| `PUSHPLUS_TOKEN` | PushPlus Token（[获取地址](https://www.pushplus.plus)，国内推送服务） | 可选 |
-| `SERVERCHAN3_SENDKEY` | Server酱³ Sendkey（[获取地址](https://sc3.ft07.com/)，手机APP推送服务） | 可选 |
-| `CUSTOM_WEBHOOK_URLS` | 自定义 Webhook（支持钉钉等，多个用逗号分隔） | 可选 |
-| `CUSTOM_WEBHOOK_BEARER_TOKEN` | 自定义 Webhook 的 Bearer Token（用于需要认证的 Webhook） | 可选 |
+| Secret 名称                   | 说明                                                                                       | 必填  |
+| ----------------------------- | ------------------------------------------------------------------------------------------ | :---: |
+| `WECHAT_WEBHOOK_URL`          | 企业微信 Webhook URL                                                                       | 可选  |
+| `FEISHU_WEBHOOK_URL`          | 飞书 Webhook URL                                                                           | 可选  |
+| `TELEGRAM_BOT_TOKEN`          | Telegram Bot Token（@BotFather 获取）                                                      | 可选  |
+| `TELEGRAM_CHAT_ID`            | Telegram Chat ID                                                                           | 可选  |
+| `TELEGRAM_MESSAGE_THREAD_ID`  | Telegram Topic ID (用于发送到子话题)                                                       | 可选  |
+| `DISCORD_WEBHOOK_URL`         | Discord Webhook URL（[创建方法](https://support.discord.com/hc/en-us/articles/228383668)） | 可选  |
+| `DISCORD_BOT_TOKEN`           | Discord Bot Token（与 Webhook 二选一）                                                     | 可选  |
+| `DISCORD_CHANNEL_ID`          | Discord Channel ID（使用 Bot 时需要）                                                      | 可选  |
+| `EMAIL_SENDER`                | 发件人邮箱（如 `xxx@qq.com`）                                                              | 可选  |
+| `EMAIL_PASSWORD`              | 邮箱授权码（非登录密码）                                                                   | 可选  |
+| `EMAIL_RECEIVERS`             | 收件人邮箱（多个用逗号分隔，留空则发给自己）                                               | 可选  |
+| `EMAIL_SENDER_NAME`           | 发件人显示名称（默认：daily_stock_analysis股票分析助手）                                   | 可选  |
+| `PUSHPLUS_TOKEN`              | PushPlus Token（[获取地址](https://www.pushplus.plus)，国内推送服务）                      | 可选  |
+| `SERVERCHAN3_SENDKEY`         | Server酱³ Sendkey（[获取地址](https://sc3.ft07.com/)，手机APP推送服务）                    | 可选  |
+| `CUSTOM_WEBHOOK_URLS`         | 自定义 Webhook（支持钉钉等，多个用逗号分隔）                                               | 可选  |
+| `CUSTOM_WEBHOOK_BEARER_TOKEN` | 自定义 Webhook 的 Bearer Token（用于需要认证的 Webhook）                                   | 可选  |
 
 > *注：至少配置一个渠道，配置多个则同时推送
 
 #### 推送行为配置
 
-| Secret 名称 | 说明 | 必填 |
-|------------|------|:----:|
-| `SINGLE_STOCK_NOTIFY` | 单股推送模式：设为 `true` 则每分析完一只股票立即推送 | 可选 |
-| `REPORT_TYPE` | 报告类型：`simple`(精简) 或 `full`(完整)，Docker环境推荐设为 `full` | 可选 |
-| `ANALYSIS_DELAY` | 个股分析和大盘分析之间的延迟（秒），避免API限流，如 `10` | 可选 |
+| Secret 名称           | 说明                                                                | 必填  |
+| --------------------- | ------------------------------------------------------------------- | :---: |
+| `SINGLE_STOCK_NOTIFY` | 单股推送模式：设为 `true` 则每分析完一只股票立即推送                | 可选  |
+| `REPORT_TYPE`         | 报告类型：`simple`(精简) 或 `full`(完整)，Docker环境推荐设为 `full` | 可选  |
+| `ANALYSIS_DELAY`      | 个股分析和大盘分析之间的延迟（秒），避免API限流，如 `10`            | 可选  |
 
 #### 其他配置
 
-| Secret 名称 | 说明 | 必填 |
-|------------|------|:----:|
-| `STOCK_LIST` | 自选股代码，如 `600519,300750,002594` | ✅ |
-| `TAVILY_API_KEYS` | [Tavily](https://tavily.com/) 搜索 API（新闻搜索） | 推荐 |
-| `BOCHA_API_KEYS` | [博查搜索](https://open.bocha.cn/) Web Search API（中文搜索优化，支持AI摘要，多个key用逗号分隔） | 可选 |
-| `BRAVE_API_KEYS` | [Brave Search](https://brave.com/search/api/) API（隐私优先，美股优化，多个key用逗号分隔） | 可选 |
-| `SERPAPI_API_KEYS` | [SerpAPI](https://serpapi.com/baidu-search-api?utm_source=github_daily_stock_analysis) 备用搜索 | 可选 |
-| `TUSHARE_TOKEN` | [Tushare Pro](https://tushare.pro/weborder/#/login?reg=834638 ) Token | 可选 |
+| Secret 名称        | 说明                                                                                             | 必填  |
+| ------------------ | ------------------------------------------------------------------------------------------------ | :---: |
+| `STOCK_LIST`       | 自选股代码，如 `600519,300750,002594`                                                            |   ✅   |
+| `TAVILY_API_KEYS`  | [Tavily](https://tavily.com/) 搜索 API（新闻搜索）                                               | 推荐  |
+| `BOCHA_API_KEYS`   | [博查搜索](https://open.bocha.cn/) Web Search API（中文搜索优化，支持AI摘要，多个key用逗号分隔） | 可选  |
+| `BRAVE_API_KEYS`   | [Brave Search](https://brave.com/search/api/) API（隐私优先，美股优化，多个key用逗号分隔）       | 可选  |
+| `SERPAPI_API_KEYS` | [SerpAPI](https://serpapi.com/baidu-search-api?utm_source=github_daily_stock_analysis) 备用搜索  | 可选  |
+| `TUSHARE_TOKEN`    | [Tushare Pro](https://tushare.pro/weborder/#/login?reg=834638 ) Token                            | 可选  |
 
 #### ✅ 最小配置示例
 
@@ -133,7 +133,7 @@ daily_stock_analysis/
 
 ### 5. 完成！
 
-默认每个工作日 **18:00（北京时间）** 自动执行。
+默认每个工作日 **19:00（北京时间）** 自动执行。
 
 ---
 
@@ -141,47 +141,47 @@ daily_stock_analysis/
 
 ### AI 模型配置
 
-| 变量名 | 说明 | 默认值 | 必填 |
-|--------|------|--------|:----:|
-| `GEMINI_API_KEY` | Google Gemini API Key | - | ✅* |
-| `GEMINI_MODEL` | 主模型名称 | `gemini-3-flash-preview` | 否 |
-| `GEMINI_MODEL_FALLBACK` | 备选模型 | `gemini-2.5-flash` | 否 |
-| `OPENAI_API_KEY` | OpenAI 兼容 API Key | - | 可选 |
-| `OPENAI_BASE_URL` | OpenAI 兼容 API 地址 | - | 可选 |
-| `OPENAI_MODEL` | OpenAI 模型名称 | `gpt-4o` | 可选 |
+| 变量名                  | 说明                  | 默认值                   | 必填  |
+| ----------------------- | --------------------- | ------------------------ | :---: |
+| `GEMINI_API_KEY`        | Google Gemini API Key | -                        |  ✅*   |
+| `GEMINI_MODEL`          | 主模型名称            | `gemini-3-flash-preview` |  否   |
+| `GEMINI_MODEL_FALLBACK` | 备选模型              | `gemini-2.5-flash`       |  否   |
+| `OPENAI_API_KEY`        | OpenAI 兼容 API Key   | -                        | 可选  |
+| `OPENAI_BASE_URL`       | OpenAI 兼容 API 地址  | -                        | 可选  |
+| `OPENAI_MODEL`          | OpenAI 模型名称       | `gpt-4o`                 | 可选  |
 
 > *注：`GEMINI_API_KEY` 和 `OPENAI_API_KEY` 至少配置一个
 
 ### 通知渠道配置
 
-| 变量名 | 说明 | 必填 |
-|--------|------|:----:|
-| `WECHAT_WEBHOOK_URL` | 企业微信机器人 Webhook URL | 可选 |
-| `FEISHU_WEBHOOK_URL` | 飞书机器人 Webhook URL | 可选 |
-| `TELEGRAM_BOT_TOKEN` | Telegram Bot Token | 可选 |
-| `TELEGRAM_CHAT_ID` | Telegram Chat ID | 可选 |
-| `TELEGRAM_MESSAGE_THREAD_ID` | Telegram Topic ID | 可选 |
-| `DISCORD_WEBHOOK_URL` | Discord Webhook URL | 可选 |
-| `DISCORD_BOT_TOKEN` | Discord Bot Token（与 Webhook 二选一） | 可选 |
-| `DISCORD_CHANNEL_ID` | Discord Channel ID（使用 Bot 时需要） | 可选 |
-| `EMAIL_SENDER` | 发件人邮箱 | 可选 |
-| `EMAIL_PASSWORD` | 邮箱授权码（非登录密码） | 可选 |
-| `EMAIL_RECEIVERS` | 收件人邮箱（逗号分隔，留空发给自己） | 可选 |
-| `EMAIL_SENDER_NAME` | 发件人显示名称 | 可选 |
-| `CUSTOM_WEBHOOK_URLS` | 自定义 Webhook（逗号分隔） | 可选 |
-| `CUSTOM_WEBHOOK_BEARER_TOKEN` | 自定义 Webhook Bearer Token | 可选 |
-| `PUSHOVER_USER_KEY` | Pushover 用户 Key | 可选 |
-| `PUSHOVER_API_TOKEN` | Pushover API Token | 可选 |
-| `PUSHPLUS_TOKEN` | PushPlus Token（国内推送服务） | 可选 |
-| `SERVERCHAN3_SENDKEY` | Server酱³ Sendkey | 可选 |
+| 变量名                        | 说明                                   | 必填  |
+| ----------------------------- | -------------------------------------- | :---: |
+| `WECHAT_WEBHOOK_URL`          | 企业微信机器人 Webhook URL             | 可选  |
+| `FEISHU_WEBHOOK_URL`          | 飞书机器人 Webhook URL                 | 可选  |
+| `TELEGRAM_BOT_TOKEN`          | Telegram Bot Token                     | 可选  |
+| `TELEGRAM_CHAT_ID`            | Telegram Chat ID                       | 可选  |
+| `TELEGRAM_MESSAGE_THREAD_ID`  | Telegram Topic ID                      | 可选  |
+| `DISCORD_WEBHOOK_URL`         | Discord Webhook URL                    | 可选  |
+| `DISCORD_BOT_TOKEN`           | Discord Bot Token（与 Webhook 二选一） | 可选  |
+| `DISCORD_CHANNEL_ID`          | Discord Channel ID（使用 Bot 时需要）  | 可选  |
+| `EMAIL_SENDER`                | 发件人邮箱                             | 可选  |
+| `EMAIL_PASSWORD`              | 邮箱授权码（非登录密码）               | 可选  |
+| `EMAIL_RECEIVERS`             | 收件人邮箱（逗号分隔，留空发给自己）   | 可选  |
+| `EMAIL_SENDER_NAME`           | 发件人显示名称                         | 可选  |
+| `CUSTOM_WEBHOOK_URLS`         | 自定义 Webhook（逗号分隔）             | 可选  |
+| `CUSTOM_WEBHOOK_BEARER_TOKEN` | 自定义 Webhook Bearer Token            | 可选  |
+| `PUSHOVER_USER_KEY`           | Pushover 用户 Key                      | 可选  |
+| `PUSHOVER_API_TOKEN`          | Pushover API Token                     | 可选  |
+| `PUSHPLUS_TOKEN`              | PushPlus Token（国内推送服务）         | 可选  |
+| `SERVERCHAN3_SENDKEY`         | Server酱³ Sendkey                      | 可选  |
 
 #### 飞书云文档配置（可选，解决消息截断问题）
 
-| 变量名 | 说明 | 必填 |
-|--------|------|:----:|
-| `FEISHU_APP_ID` | 飞书应用 ID | 可选 |
-| `FEISHU_APP_SECRET` | 飞书应用 Secret | 可选 |
-| `FEISHU_FOLDER_TOKEN` | 飞书云盘文件夹 Token | 可选 |
+| 变量名                | 说明                 | 必填  |
+| --------------------- | -------------------- | :---: |
+| `FEISHU_APP_ID`       | 飞书应用 ID          | 可选  |
+| `FEISHU_APP_SECRET`   | 飞书应用 Secret      | 可选  |
+| `FEISHU_FOLDER_TOKEN` | 飞书云盘文件夹 Token | 可选  |
 
 > 飞书云文档配置步骤：
 > 1. 在 [飞书开发者后台](https://open.feishu.cn/app) 创建应用
@@ -191,29 +191,29 @@ daily_stock_analysis/
 
 ### 搜索服务配置
 
-| 变量名 | 说明 | 必填 |
-|--------|------|:----:|
-| `TAVILY_API_KEYS` | Tavily 搜索 API Key（推荐） | 推荐 |
-| `BOCHA_API_KEYS` | 博查搜索 API Key（中文优化） | 可选 |
-| `BRAVE_API_KEYS` | Brave Search API Key（美股优化） | 可选 |
-| `SERPAPI_API_KEYS` | SerpAPI 备用搜索 | 可选 |
+| 变量名             | 说明                             | 必填  |
+| ------------------ | -------------------------------- | :---: |
+| `TAVILY_API_KEYS`  | Tavily 搜索 API Key（推荐）      | 推荐  |
+| `BOCHA_API_KEYS`   | 博查搜索 API Key（中文优化）     | 可选  |
+| `BRAVE_API_KEYS`   | Brave Search API Key（美股优化） | 可选  |
+| `SERPAPI_API_KEYS` | SerpAPI 备用搜索                 | 可选  |
 
 ### 数据源配置
 
-| 变量名 | 说明 | 必填 |
-|--------|------|:----:|
-| `TUSHARE_TOKEN` | Tushare Pro Token | 可选 |
+| 变量名          | 说明              | 必填  |
+| --------------- | ----------------- | :---: |
+| `TUSHARE_TOKEN` | Tushare Pro Token | 可选  |
 
 ### 其他配置
 
-| 变量名 | 说明 | 默认值 |
-|--------|------|--------|
-| `STOCK_LIST` | 自选股代码（逗号分隔） | - |
-| `MAX_WORKERS` | 并发线程数 | `3` |
-| `MARKET_REVIEW_ENABLED` | 启用大盘复盘 | `true` |
-| `SCHEDULE_ENABLED` | 启用定时任务 | `false` |
-| `SCHEDULE_TIME` | 定时执行时间 | `18:00` |
-| `LOG_DIR` | 日志目录 | `./logs` |
+| 变量名                  | 说明                   | 默认值   |
+| ----------------------- | ---------------------- | -------- |
+| `STOCK_LIST`            | 自选股代码（逗号分隔） | -        |
+| `MAX_WORKERS`           | 并发线程数             | `3`      |
+| `MARKET_REVIEW_ENABLED` | 启用大盘复盘           | `true`   |
+| `SCHEDULE_ENABLED`      | 启用定时任务           | `false`  |
+| `SCHEDULE_TIME`         | 定时执行时间           | `19:00`  |
+| `LOG_DIR`               | 日志目录               | `./logs` |
 
 ---
 
@@ -247,11 +247,11 @@ docker-compose -f ./docker/docker-compose.yml logs -f server
 
 ### 运行模式说明
 
-| 命令 | 说明 | 端口 |
-|------|------|------|
-| `docker-compose -f ./docker/docker-compose.yml up -d server` | Web 服务模式，提供 API 与 WebUI | 8000 |
-| `docker-compose -f ./docker/docker-compose.yml up -d analyzer` | 定时任务模式，每日自动执行 | - |
-| `docker-compose -f ./docker/docker-compose.yml up -d` | 同时启动两种模式 | 8000 |
+| 命令                                                           | 说明                            | 端口 |
+| -------------------------------------------------------------- | ------------------------------- | ---- |
+| `docker-compose -f ./docker/docker-compose.yml up -d server`   | Web 服务模式，提供 API 与 WebUI | 8000 |
+| `docker-compose -f ./docker/docker-compose.yml up -d analyzer` | 定时任务模式，每日自动执行      | -    |
+| `docker-compose -f ./docker/docker-compose.yml up -d`          | 同时启动两种模式                | 8000 |
 
 ### Docker Compose 配置
 
@@ -355,28 +355,28 @@ python main.py --workers 5            # 指定并发数
 ```yaml
 schedule:
   # UTC 时间，北京时间 = UTC + 8
-  - cron: '0 10 * * 1-5'   # 周一到周五 18:00（北京时间）
+  - cron: '0 11 * * 1-5'   # 周一到周五 19:00（北京时间）
 ```
 
 常用时间对照：
 
-| 北京时间 | UTC cron 表达式 |
-|---------|----------------|
-| 09:30 | `'30 1 * * 1-5'` |
-| 12:00 | `'0 4 * * 1-5'` |
-| 15:00 | `'0 7 * * 1-5'` |
-| 18:00 | `'0 10 * * 1-5'` |
-| 21:00 | `'0 13 * * 1-5'` |
+| 北京时间 | UTC cron 表达式  |
+| -------- | ---------------- |
+| 09:30    | `'30 1 * * 1-5'` |
+| 12:00    | `'0 4 * * 1-5'`  |
+| 15:00    | `'0 7 * * 1-5'`  |
+| 19:00    | `'0 11 * * 1-5'` |
+| 21:00    | `'0 13 * * 1-5'` |
 
 ### 本地定时任务
 
 ```bash
-# 启动定时模式（默认 18:00 执行）
+# 启动定时模式（默认 19:00 执行）
 python main.py --schedule
 
 # 或使用 crontab
 crontab -e
-# 添加：0 18 * * 1-5 cd /path/to/project && python main.py
+# 添加：0 19 * * 1-5 cd /path/to/project && python main.py
 ```
 
 ---
@@ -548,24 +548,24 @@ python main.py --debug
 
 ### 操作建议映射
 
-| 操作建议 | 仓位推断 | 预期方向 | 胜利条件 |
-|---------|---------|---------|---------|
-| 买入/加仓/strong buy | long | up | 涨幅 ≥ 中性带 |
-| 卖出/减仓/strong sell | cash | down | 跌幅 ≥ 中性带 |
-| 持有/hold | long | not_down | 未显著下跌 |
-| 观望/等待/wait | cash | flat | 价格在中性带内 |
+| 操作建议              | 仓位推断 | 预期方向 | 胜利条件       |
+| --------------------- | -------- | -------- | -------------- |
+| 买入/加仓/strong buy  | long     | up       | 涨幅 ≥ 中性带  |
+| 卖出/减仓/strong sell | cash     | down     | 跌幅 ≥ 中性带  |
+| 持有/hold             | long     | not_down | 未显著下跌     |
+| 观望/等待/wait        | cash     | flat     | 价格在中性带内 |
 
 ### 配置
 
 在 `.env` 中设置以下变量（均有默认值，可选）：
 
-| 变量 | 默认值 | 说明 |
-|------|-------|------|
-| `BACKTEST_ENABLED` | `true` | 是否在每日分析后自动运行回测 |
-| `BACKTEST_EVAL_WINDOW_DAYS` | `10` | 评估窗口（交易日数） |
-| `BACKTEST_MIN_AGE_DAYS` | `14` | 仅回测 N 天前的记录，避免数据不完整 |
-| `BACKTEST_ENGINE_VERSION` | `v1` | 引擎版本号，升级逻辑时用于区分结果 |
-| `BACKTEST_NEUTRAL_BAND_PCT` | `2.0` | 中性区间阈值（%），±2% 内视为震荡 |
+| 变量                        | 默认值 | 说明                                |
+| --------------------------- | ------ | ----------------------------------- |
+| `BACKTEST_ENABLED`          | `true` | 是否在每日分析后自动运行回测        |
+| `BACKTEST_EVAL_WINDOW_DAYS` | `10`   | 评估窗口（交易日数）                |
+| `BACKTEST_MIN_AGE_DAYS`     | `14`   | 仅回测 N 天前的记录，避免数据不完整 |
+| `BACKTEST_ENGINE_VERSION`   | `v1`   | 引擎版本号，升级逻辑时用于区分结果  |
+| `BACKTEST_NEUTRAL_BAND_PCT` | `2.0`  | 中性区间阈值（%），±2% 内视为震荡   |
 
 ### 自动运行
 
@@ -573,13 +573,13 @@ python main.py --debug
 
 ### 评估指标
 
-| 指标 | 说明 |
-|------|------|
-| `direction_accuracy_pct` | 方向预测准确率（预期方向与实际一致） |
-| `win_rate_pct` | 胜率（胜 / (胜+负)，不含中性） |
-| `avg_stock_return_pct` | 平均股票收益率 |
+| 指标                       | 说明                                 |
+| -------------------------- | ------------------------------------ |
+| `direction_accuracy_pct`   | 方向预测准确率（预期方向与实际一致） |
+| `win_rate_pct`             | 胜率（胜 / (胜+负)，不含中性）       |
+| `avg_stock_return_pct`     | 平均股票收益率                       |
 | `avg_simulated_return_pct` | 平均模拟执行收益率（含止盈止损退出） |
-| `stop_loss_trigger_rate` | 止损触发率（仅统计配置了止损的记录） |
+| `stop_loss_trigger_rate`   | 止损触发率（仅统计配置了止损的记录） |
 | `take_profit_trigger_rate` | 止盈触发率（仅统计配置了止盈的记录） |
 
 ---
@@ -590,10 +590,10 @@ FastAPI 提供 RESTful API 服务，支持配置管理和触发分析。
 
 ### 启动方式
 
-| 命令 | 说明 |
-|------|------|
-| `python main.py --serve` | 启动 API 服务 + 执行一次完整分析 |
-| `python main.py --serve-only` | 仅启动 API 服务，手动触发分析 |
+| 命令                          | 说明                             |
+| ----------------------------- | -------------------------------- |
+| `python main.py --serve`      | 启动 API 服务 + 执行一次完整分析 |
+| `python main.py --serve-only` | 仅启动 API 服务，手动触发分析    |
 
 ### 功能特性
 
@@ -605,18 +605,18 @@ FastAPI 提供 RESTful API 服务，支持配置管理和触发分析。
 
 ### API 接口
 
-| 接口 | 方法 | 说明 |
-|------|------|------|
-| `/api/v1/analysis/analyze` | POST | 触发股票分析 |
-| `/api/v1/analysis/tasks` | GET | 查询任务列表 |
-| `/api/v1/analysis/status/{task_id}` | GET | 查询任务状态 |
-| `/api/v1/history` | GET | 查询分析历史 |
-| `/api/v1/backtest/run` | POST | 触发回测 |
-| `/api/v1/backtest/results` | GET | 查询回测结果（分页） |
-| `/api/v1/backtest/performance` | GET | 获取整体回测表现 |
-| `/api/v1/backtest/performance/{code}` | GET | 获取单股回测表现 |
-| `/api/health` | GET | 健康检查 |
-| `/docs` | GET | API Swagger 文档 |
+| 接口                                  | 方法 | 说明                 |
+| ------------------------------------- | ---- | -------------------- |
+| `/api/v1/analysis/analyze`            | POST | 触发股票分析         |
+| `/api/v1/analysis/tasks`              | GET  | 查询任务列表         |
+| `/api/v1/analysis/status/{task_id}`   | GET  | 查询任务状态         |
+| `/api/v1/history`                     | GET  | 查询分析历史         |
+| `/api/v1/backtest/run`                | POST | 触发回测             |
+| `/api/v1/backtest/results`            | GET  | 查询回测结果（分页） |
+| `/api/v1/backtest/performance`        | GET  | 获取整体回测表现     |
+| `/api/v1/backtest/performance/{code}` | GET  | 获取单股回测表现     |
+| `/api/health`                         | GET  | 健康检查             |
+| `/docs`                               | GET  | API Swagger 文档     |
 
 **调用示例**：
 ```bash
@@ -661,10 +661,10 @@ python main.py --serve-only --host 0.0.0.0 --port 8888
 
 ### 支持的股票代码格式
 
-| 类型 | 格式 | 示例 |
-|------|------|------|
-| A股 | 6位数字 | `600519`、`000001`、`300750` |
-| 港股 | hk + 5位数字 | `hk00700`、`hk09988` |
+| 类型 | 格式         | 示例                         |
+| ---- | ------------ | ---------------------------- |
+| A股  | 6位数字      | `600519`、`000001`、`300750` |
+| 港股 | hk + 5位数字 | `hk00700`、`hk09988`         |
 
 ### 注意事项
 

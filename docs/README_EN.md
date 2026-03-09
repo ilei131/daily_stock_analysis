@@ -32,32 +32,32 @@ English | [简体中文](../README.md) | [繁體中文](README_CHT.md)
 
 ## ✨ Key Features
 
-| Module | Feature | Description |
-|--------|---------|-------------|
-| AI | Decision Dashboard | One-sentence conclusion + precise entry/exit levels + action checklist |
-| Analysis | Multi-dimensional Analysis | Technicals + chip distribution + sentiment + real-time quotes |
-| Market | Global Markets | A-shares, Hong Kong stocks, US stocks |
-| Review | Market Review | Daily overview, sectors, northbound capital flow |
-| Backtest | AI Backtest Validation | Auto-evaluate historical analysis accuracy, direction win rate, SL/TP hit rates |
-| Notifications | Multi-channel Push | Telegram, Discord, Email, WeChat Work, Feishu, etc. |
-| Automation | Scheduled Runs | GitHub Actions scheduled execution, no server required |
+| Module        | Feature                    | Description                                                                     |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------- |
+| AI            | Decision Dashboard         | One-sentence conclusion + precise entry/exit levels + action checklist          |
+| Analysis      | Multi-dimensional Analysis | Technicals + chip distribution + sentiment + real-time quotes                   |
+| Market        | Global Markets             | A-shares, Hong Kong stocks, US stocks                                           |
+| Review        | Market Review              | Daily overview, sectors, northbound capital flow                                |
+| Backtest      | AI Backtest Validation     | Auto-evaluate historical analysis accuracy, direction win rate, SL/TP hit rates |
+| Notifications | Multi-channel Push         | Telegram, Discord, Email, WeChat Work, Feishu, etc.                             |
+| Automation    | Scheduled Runs             | GitHub Actions scheduled execution, no server required                          |
 
 ### Tech Stack & Data Sources
 
-| Type | Supported |
-|------|----------|
-| LLMs | Gemini (free), OpenAI-compatible, DeepSeek, Qwen, Claude, Ollama |
-| Market Data | AkShare, Tushare, Pytdx, Baostock, YFinance |
-| News Search | Tavily, SerpAPI, Bocha, Brave |
+| Type        | Supported                                                        |
+| ----------- | ---------------------------------------------------------------- |
+| LLMs        | Gemini (free), OpenAI-compatible, DeepSeek, Qwen, Claude, Ollama |
+| Market Data | AkShare, Tushare, Pytdx, Baostock, YFinance                      |
+| News Search | Tavily, SerpAPI, Bocha, Brave                                    |
 
 ### Built-in Trading Rules
 
-| Rule | Description |
-|------|-------------|
-| No chasing highs | Auto warn when deviation > 5% |
-| Trend trading | Bull alignment: MA5 > MA10 > MA20 |
-| Precise levels | Entry, stop loss, target |
-| Checklist | Each condition marked as Pass / Watch / Fail |
+| Rule             | Description                                  |
+| ---------------- | -------------------------------------------- |
+| No chasing highs | Auto warn when deviation > 5%                |
+| Trend trading    | Bull alignment: MA5 > MA10 > MA20            |
+| Precise levels   | Entry, stop loss, target                     |
+| Checklist        | Each condition marked as Pass / Watch / Fail |
 
 ## 🚀 Quick Start
 
@@ -75,38 +75,38 @@ Go to your forked repo → `Settings` → `Secrets and variables` → `Actions` 
 
 **AI Model Configuration (Choose one)**
 
-| Secret Name | Description | Required |
-|------------|------|:----:|
-| `GEMINI_API_KEY` | Get free API key from [Google AI Studio](https://aistudio.google.com/) | ✅* |
-| `OPENAI_API_KEY` | OpenAI-compatible API Key (supports DeepSeek, Qwen, etc.) | Optional |
-| `OPENAI_BASE_URL` | OpenAI-compatible API endpoint (e.g., `https://api.deepseek.com/v1`) | Optional |
-| `OPENAI_MODEL` | Model name (e.g., `deepseek-chat`) | Optional |
+| Secret Name       | Description                                                            | Required |
+| ----------------- | ---------------------------------------------------------------------- | :------: |
+| `GEMINI_API_KEY`  | Get free API key from [Google AI Studio](https://aistudio.google.com/) |    ✅*    |
+| `OPENAI_API_KEY`  | OpenAI-compatible API Key (supports DeepSeek, Qwen, etc.)              | Optional |
+| `OPENAI_BASE_URL` | OpenAI-compatible API endpoint (e.g., `https://api.deepseek.com/v1`)   | Optional |
+| `OPENAI_MODEL`    | Model name (e.g., `deepseek-chat`)                                     | Optional |
 
 > *Note: Configure at least one of `GEMINI_API_KEY` or `OPENAI_API_KEY`
 
 <details>
 <summary><b>Notification channels</b> (expand, choose at least one)</summary>
 
-| Secret Name | Description | Required |
-|------------|------|:----:|
-| `TELEGRAM_BOT_TOKEN` | Telegram Bot Token (Get from @BotFather) | Optional |
-| `TELEGRAM_CHAT_ID` | Telegram Chat ID | Optional |
-| `TELEGRAM_MESSAGE_THREAD_ID` | Telegram Topic ID (For sending to topics) | Optional |
-| `DISCORD_WEBHOOK_URL` | Discord Webhook URL | Optional |
-| `DISCORD_BOT_TOKEN` | Discord Bot Token (choose one with Webhook) | Optional |
-| `DISCORD_CHANNEL_ID` | Discord Channel ID (required when using Bot) | Optional |
-| `EMAIL_SENDER` | Sender email (e.g., `xxx@qq.com`) | Optional |
-| `EMAIL_PASSWORD` | Email authorization code (not login password) | Optional |
-| `EMAIL_RECEIVERS` | Receiver emails (comma-separated, leave empty to send to yourself) | Optional |
-| `WECHAT_WEBHOOK_URL` | WeChat Work Webhook URL | Optional |
-| `FEISHU_WEBHOOK_URL` | Feishu Webhook URL | Optional |
-| `PUSHPLUS_TOKEN` | PushPlus Token ([Get it here](https://www.pushplus.plus), Chinese push service) | Optional |
-| `SERVERCHAN3_SENDKEY` | ServerChan v3 SendKey (([Get it here](https://sc3.ft07.com/), Mobile app push notification service) ) | Optional |
-| `CUSTOM_WEBHOOK_URLS` | Custom Webhook URLs (supports DingTalk, etc., comma-separated) | Optional |
-| `CUSTOM_WEBHOOK_BEARER_TOKEN` | Bearer token for custom webhooks (if required) | Optional |
-| `SINGLE_STOCK_NOTIFY` | Send notification immediately after each stock | Optional |
-| `REPORT_TYPE` | `simple` or `full` (Docker recommended: `full`) | Optional |
-| `ANALYSIS_DELAY` | Delay between stocks and market review (seconds) | Optional |
+| Secret Name                   | Description                                                                                           | Required |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------- | :------: |
+| `TELEGRAM_BOT_TOKEN`          | Telegram Bot Token (Get from @BotFather)                                                              | Optional |
+| `TELEGRAM_CHAT_ID`            | Telegram Chat ID                                                                                      | Optional |
+| `TELEGRAM_MESSAGE_THREAD_ID`  | Telegram Topic ID (For sending to topics)                                                             | Optional |
+| `DISCORD_WEBHOOK_URL`         | Discord Webhook URL                                                                                   | Optional |
+| `DISCORD_BOT_TOKEN`           | Discord Bot Token (choose one with Webhook)                                                           | Optional |
+| `DISCORD_CHANNEL_ID`          | Discord Channel ID (required when using Bot)                                                          | Optional |
+| `EMAIL_SENDER`                | Sender email (e.g., `xxx@qq.com`)                                                                     | Optional |
+| `EMAIL_PASSWORD`              | Email authorization code (not login password)                                                         | Optional |
+| `EMAIL_RECEIVERS`             | Receiver emails (comma-separated, leave empty to send to yourself)                                    | Optional |
+| `WECHAT_WEBHOOK_URL`          | WeChat Work Webhook URL                                                                               | Optional |
+| `FEISHU_WEBHOOK_URL`          | Feishu Webhook URL                                                                                    | Optional |
+| `PUSHPLUS_TOKEN`              | PushPlus Token ([Get it here](https://www.pushplus.plus), Chinese push service)                       | Optional |
+| `SERVERCHAN3_SENDKEY`         | ServerChan v3 SendKey (([Get it here](https://sc3.ft07.com/), Mobile app push notification service) ) | Optional |
+| `CUSTOM_WEBHOOK_URLS`         | Custom Webhook URLs (supports DingTalk, etc., comma-separated)                                        | Optional |
+| `CUSTOM_WEBHOOK_BEARER_TOKEN` | Bearer token for custom webhooks (if required)                                                        | Optional |
+| `SINGLE_STOCK_NOTIFY`         | Send notification immediately after each stock                                                        | Optional |
+| `REPORT_TYPE`                 | `simple` or `full` (Docker recommended: `full`)                                                       | Optional |
+| `ANALYSIS_DELAY`              | Delay between stocks and market review (seconds)                                                      | Optional |
 
 > Note: Configure at least one channel; multiple channels will all receive notifications.
 
@@ -114,23 +114,23 @@ Go to your forked repo → `Settings` → `Secrets and variables` → `Actions` 
 
 **Stock List Configuration**
 
-| Secret Name | Description | Required |
-|------------|------|:----:|
-| `STOCK_LIST` | Watchlist codes, e.g., `600519,AAPL,hk00700` | ✅ |
-| `TAVILY_API_KEYS` | [Tavily](https://tavily.com/) Search API (for news) | Recommended |
-| `BRAVE_API_KEYS` | [Brave Search](https://brave.com/search/api/) API (privacy-focused, US stocks optimized) | Optional |
-| `SERPAPI_API_KEYS` | [SerpAPI](https://serpapi.com/baidu-search-api?utm_source=github_daily_stock_analysis) Backup search | Optional |
-| `BOCHA_API_KEYS` | [Bocha Search](https://open.bocha.cn/) Web Search API (Chinese search optimized, supports AI summaries, multiple keys comma-separated) | Optional |
-| `TUSHARE_TOKEN` | [Tushare Pro](https://tushare.pro/weborder/#/login?reg=834638 ) Token | Optional |
-| `WECHAT_MSG_TYPE` | WeChat Work message type, default `markdown`, set to `text` for plain markdown text | Optional |
+| Secret Name        | Description                                                                                                                            |  Required   |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | :---------: |
+| `STOCK_LIST`       | Watchlist codes, e.g., `600519,AAPL,hk00700`                                                                                           |      ✅      |
+| `TAVILY_API_KEYS`  | [Tavily](https://tavily.com/) Search API (for news)                                                                                    | Recommended |
+| `BRAVE_API_KEYS`   | [Brave Search](https://brave.com/search/api/) API (privacy-focused, US stocks optimized)                                               |  Optional   |
+| `SERPAPI_API_KEYS` | [SerpAPI](https://serpapi.com/baidu-search-api?utm_source=github_daily_stock_analysis) Backup search                                   |  Optional   |
+| `BOCHA_API_KEYS`   | [Bocha Search](https://open.bocha.cn/) Web Search API (Chinese search optimized, supports AI summaries, multiple keys comma-separated) |  Optional   |
+| `TUSHARE_TOKEN`    | [Tushare Pro](https://tushare.pro/weborder/#/login?reg=834638 ) Token                                                                  |  Optional   |
+| `WECHAT_MSG_TYPE`  | WeChat Work message type, default `markdown`, set to `text` for plain markdown text                                                    |  Optional   |
 
 **Stock Code Format**
 
-| Market | Format | Examples |
-|--------|--------|----------|
-| A-shares | 6-digit number | `600519`, `000001`, `300750` |
-| HK Stocks | hk + 5-digit number | `hk00700`, `hk09988` |
-| US Stocks | 1-5 uppercase letters | `AAPL`, `TSLA`, `GOOGL` |
+| Market    | Format                | Examples                     |
+| --------- | --------------------- | ---------------------------- |
+| A-shares  | 6-digit number        | `600519`, `000001`, `300750` |
+| HK Stocks | hk + 5-digit number   | `hk00700`, `hk09988`         |
+| US Stocks | 1-5 uppercase letters | `AAPL`, `TSLA`, `GOOGL`      |
 
 #### 3. Enable Actions
 
@@ -143,7 +143,7 @@ Go to `Actions` tab → Click `I understand my workflows, go ahead and enable th
 #### 5. Done!
 
 The system will:
-- Run automatically at scheduled time (default: 18:00 Beijing Time)
+- Run automatically at scheduled time (default: 19:00 Beijing Time)
 - Send analysis reports to all configured channels
 - Save reports locally
 
@@ -202,7 +202,7 @@ TAVILY_API_KEYS=your_tavily_key
 # One-time analysis
 python main.py
 
-# Scheduled mode (runs daily at 18:00)
+# Scheduled mode (runs daily at 19:00)
 python main.py --schedule
 
 # Analyze specific stocks
@@ -214,14 +214,14 @@ python main.py --market-review
 
 ### API Endpoints
 
-| Endpoint | Method | Description |
-|------|------|------|
-| `/` | GET | Configuration page |
-| `/health` | GET | Health check |
-| `/analysis?code=xxx` | GET | Trigger async analysis for a single stock |
-| `/analysis/history` | GET | Query analysis history records |
-| `/tasks` | GET | Query all task statuses |
-| `/task?id=xxx` | GET | Query a single task status |
+| Endpoint             | Method | Description                               |
+| -------------------- | ------ | ----------------------------------------- |
+| `/`                  | GET    | Configuration page                        |
+| `/health`            | GET    | Health check                              |
+| `/analysis?code=xxx` | GET    | Trigger async analysis for a single stock |
+| `/analysis/history`  | GET    | Query analysis history records            |
+| `/tasks`             | GET    | Query all task statuses                   |
+| `/task?id=xxx`       | GET    | Query a single task status                |
 
 ---
 
@@ -309,24 +309,24 @@ PUSHPLUS_TOKEN=your_token_here
 
 ⏰ **Time Sensitivity**: Within this week
 
-| Position | Action |
-|----------|--------|
-| 🆕 **No Position** | Buy at pullback |
+| Position            | Action           |
+| ------------------- | ---------------- |
+| 🆕 **No Position**   | Buy at pullback  |
 | 💼 **With Position** | Continue holding |
 
 ### 📊 Data Perspective
 
 **MA Alignment**: MA5>MA10>MA20 | Bull Trend: ✅ Yes | Trend Strength: 85/100
 
-| Price Metrics | Value |
-|--------------|-------|
-| Current | $185.50 |
-| MA5 | $183.20 |
-| MA10 | $180.50 |
-| MA20 | $177.80 |
-| Bias (MA5) | +1.26% ✅ Safe |
-| Support | $183.20 |
-| Resistance | $190.00 |
+| Price Metrics | Value         |
+| ------------- | ------------- |
+| Current       | $185.50       |
+| MA5           | $183.20       |
+| MA10          | $180.50       |
+| MA20          | $177.80       |
+| Bias (MA5)    | +1.26% ✅ Safe |
+| Support       | $183.20       |
+| Resistance    | $190.00       |
 
 **Volume**: Ratio 1.8 (Moderate increase) | Turnover 2.3%
 💡 *Volume confirms bullish momentum*
@@ -335,12 +335,12 @@ PUSHPLUS_TOKEN=your_token_here
 
 **📍 Sniper Points**
 
-| Level Type | Price |
-|-----------|-------|
-| 🎯 Ideal Entry | $183-184 |
+| Level Type        | Price    |
+| ----------------- | -------- |
+| 🎯 Ideal Entry     | $183-184 |
 | 🔵 Secondary Entry | $180-181 |
-| 🛑 Stop Loss | $177 |
-| 🎊 Target | $195 |
+| 🛑 Stop Loss       | $177     |
+| 🎊 Target          | $195     |
 
 **💰 Position Sizing**: 20-30% of portfolio
 - Entry Plan: Enter in 2-3 batches
@@ -370,7 +370,7 @@ SINGLE_STOCK_NOTIFY=true       # Push immediately after each stock analysis
 
 # === Schedule ===
 SCHEDULE_ENABLED=true          # Enable scheduled task
-SCHEDULE_TIME=18:00            # Daily run time (HH:MM, 24-hour format)
+SCHEDULE_TIME=19:00            # Daily run time (HH:MM, 24-hour format)
 MARKET_REVIEW_ENABLED=true     # Enable market review
 
 # === Data Source ===
@@ -389,9 +389,9 @@ Enable the FastAPI service for configuration management and triggering analysis 
 
 ### Startup Methods
 
-| Command | Description |
-|---------|-------------|
-| `python main.py --serve` | Start API service + run full analysis once |
+| Command                       | Description                                       |
+| ----------------------------- | ------------------------------------------------- |
+| `python main.py --serve`      | Start API service + run full analysis once        |
 | `python main.py --serve-only` | Start API service only, manually trigger analysis |
 
 - URL: `http://127.0.0.1:8000`
@@ -406,17 +406,17 @@ Enable the FastAPI service for configuration management and triggering analysis 
 
 ### API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/v1/analysis/analyze` | POST | Trigger stock analysis |
-| `/api/v1/analysis/tasks` | GET | Query task list |
-| `/api/v1/analysis/status/{task_id}` | GET | Query task status |
-| `/api/v1/history` | GET | Query analysis history |
-| `/api/v1/backtest/run` | POST | Trigger backtest |
-| `/api/v1/backtest/results` | GET | Query backtest results (paginated) |
-| `/api/v1/backtest/performance` | GET | Get overall backtest performance |
-| `/api/v1/backtest/performance/{code}` | GET | Get per-stock backtest performance |
-| `/api/health` | GET | Health check |
+| Endpoint                              | Method | Description                        |
+| ------------------------------------- | ------ | ---------------------------------- |
+| `/api/v1/analysis/analyze`            | POST   | Trigger stock analysis             |
+| `/api/v1/analysis/tasks`              | GET    | Query task list                    |
+| `/api/v1/analysis/status/{task_id}`   | GET    | Query task status                  |
+| `/api/v1/history`                     | GET    | Query analysis history             |
+| `/api/v1/backtest/run`                | POST   | Trigger backtest                   |
+| `/api/v1/backtest/results`            | GET    | Query backtest results (paginated) |
+| `/api/v1/backtest/performance`        | GET    | Get overall backtest performance   |
+| `/api/v1/backtest/performance/{code}` | GET    | Get per-stock backtest performance |
+| `/api/health`                         | GET    | Health check                       |
 
 > For detailed instructions, see [Full Guide - API Service](full-guide_EN.md#fastapi-api-service)
 
@@ -441,8 +441,8 @@ Enable the FastAPI service for configuration management and triggering analysis 
   </a>
 </div>
 
-| Alipay | WeChat Pay | Ko-fi |
-| :---: | :---: | :---: |
+|                           Alipay                           |                            WeChat Pay                             |                                                      Ko-fi                                                       |
+| :--------------------------------------------------------: | :---------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: |
 | <img src="../sources/alipay.jpg" width="200" alt="Alipay"> | <img src="../sources/wechatpay.jpg" width="200" alt="WeChat Pay"> | <a href="https://ko-fi.com/mumu157" target="_blank"><img src="../sources/ko-fi.png" width="200" alt="Ko-fi"></a> |
 
 ## 🤝 Contributing

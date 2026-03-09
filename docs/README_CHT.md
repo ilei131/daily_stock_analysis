@@ -32,31 +32,31 @@
 
 ## ✨ 功能特性
 
-| 模組 | 功能 | 說明 |
-|------|------|------|
-| AI | 決策儀表盤 | 一句話核心結論 + 精確買賣點位 + 操作檢查清單 |
-| 分析 | 多維度分析 | 技術面 + 籌碼分布 + 輿情情報 + 實時行情 |
-| 市場 | 全球市場 | 支援 A股、港股、美股 |
-| 復盤 | 大盤復盤 | 每日市場概覽、板塊漲跌、北向資金 |
-| 回測 | AI 回測驗證 | 自動評估歷史分析準確率，方向勝率、止盈止損命中率 |
-| 推送 | 多渠道通知 | Telegram、Discord、郵件、企業微信、飛書等 |
-| 自動化 | 定時運行 | GitHub Actions 定時執行，無需伺服器 |
+| 模組   | 功能        | 說明                                             |
+| ------ | ----------- | ------------------------------------------------ |
+| AI     | 決策儀表盤  | 一句話核心結論 + 精確買賣點位 + 操作檢查清單     |
+| 分析   | 多維度分析  | 技術面 + 籌碼分布 + 輿情情報 + 實時行情          |
+| 市場   | 全球市場    | 支援 A股、港股、美股                             |
+| 復盤   | 大盤復盤    | 每日市場概覽、板塊漲跌、北向資金                 |
+| 回測   | AI 回測驗證 | 自動評估歷史分析準確率，方向勝率、止盈止損命中率 |
+| 推送   | 多渠道通知  | Telegram、Discord、郵件、企業微信、飛書等        |
+| 自動化 | 定時運行    | GitHub Actions 定時執行，無需伺服器              |
 
 ### 技術棧與數據來源
 
-| 類型 | 支援 |
-|------|------|
-| AI 模型 | Gemini（免費）、OpenAI 兼容、DeepSeek、通義千問、Claude、Ollama |
-| 行情數據 | AkShare、Tushare、Pytdx、Baostock、YFinance |
-| 新聞搜索 | Tavily、SerpAPI、Bocha、Brave |
+| 類型     | 支援                                                            |
+| -------- | --------------------------------------------------------------- |
+| AI 模型  | Gemini（免費）、OpenAI 兼容、DeepSeek、通義千問、Claude、Ollama |
+| 行情數據 | AkShare、Tushare、Pytdx、Baostock、YFinance                     |
+| 新聞搜索 | Tavily、SerpAPI、Bocha、Brave                                   |
 
 ### 內建交易紀律
 
-| 規則 | 說明 |
-|------|------|
-| 嚴禁追高 | 乖離率 > 5% 自動提示風險 |
-| 趨勢交易 | MA5 > MA10 > MA20 多頭排列 |
-| 精確點位 | 買入價、止損價、目標價 |
+| 規則     | 說明                                   |
+| -------- | -------------------------------------- |
+| 嚴禁追高 | 乖離率 > 5% 自動提示風險               |
+| 趨勢交易 | MA5 > MA10 > MA20 多頭排列             |
+| 精確點位 | 買入價、止損價、目標價                 |
 | 檢查清單 | 每項條件以「符合 / 注意 / 不符合」標記 |
 
 ## 🚀 快速開始
@@ -75,38 +75,38 @@
 
 **AI 模型配置（二選一）**
 
-| Secret 名稱 | 說明 | 必填 |
-|------------|------|:----:|
-| `GEMINI_API_KEY` | [Google AI Studio](https://aistudio.google.com/) 獲取免費 Key | ✅* |
-| `OPENAI_API_KEY` | OpenAI 兼容 API Key（支持 DeepSeek、通義千問等） | 可選 |
-| `OPENAI_BASE_URL` | OpenAI 兼容 API 地址（如 `https://api.deepseek.com/v1`） | 可選 |
-| `OPENAI_MODEL` | 模型名稱（如 `deepseek-chat`） | 可選 |
+| Secret 名稱       | 說明                                                          | 必填  |
+| ----------------- | ------------------------------------------------------------- | :---: |
+| `GEMINI_API_KEY`  | [Google AI Studio](https://aistudio.google.com/) 獲取免費 Key |  ✅*   |
+| `OPENAI_API_KEY`  | OpenAI 兼容 API Key（支持 DeepSeek、通義千問等）              | 可選  |
+| `OPENAI_BASE_URL` | OpenAI 兼容 API 地址（如 `https://api.deepseek.com/v1`）      | 可選  |
+| `OPENAI_MODEL`    | 模型名稱（如 `deepseek-chat`）                                | 可選  |
 
 > *注：`GEMINI_API_KEY` 和 `OPENAI_API_KEY` 至少配置一個
 
 <details>
 <summary><b>通知渠道配置</b>（點擊展開，至少配置一個）</summary>
 
-| Secret 名稱 | 說明 | 必填 |
-|------------|------|:----:|
-| `TELEGRAM_BOT_TOKEN` | Telegram Bot Token（@BotFather 獲取） | 可選 |
-| `TELEGRAM_CHAT_ID` | Telegram Chat ID | 可選 |
-| `TELEGRAM_MESSAGE_THREAD_ID` | Telegram Topic ID (用於發送到子話題) | 可選 |
-| `DISCORD_WEBHOOK_URL` | Discord Webhook URL | 可選 |
-| `DISCORD_BOT_TOKEN` | Discord Bot Token（與 Webhook 二選一） | 可選 |
-| `DISCORD_CHANNEL_ID` | Discord Channel ID（使用 Bot 時需要） | 可選 |
-| `EMAIL_SENDER` | 發件人郵箱（如 `xxx@qq.com`） | 可選 |
-| `EMAIL_PASSWORD` | 郵箱授權碼（非登錄密碼） | 可選 |
-| `EMAIL_RECEIVERS` | 收件人郵箱（多個用逗號分隔，留空則發給自己） | 可選 |
-| `WECHAT_WEBHOOK_URL` | 企業微信 Webhook URL | 可選 |
-| `FEISHU_WEBHOOK_URL` | 飛書 Webhook URL | 可選 |
-| `PUSHPLUS_TOKEN` | PushPlus Token（[獲取地址](https://www.pushplus.plus)，國內推送服務） | 可選 |
-| `SERVERCHAN3_SENDKEY` | Server酱³ Sendkey（[獲取地址](https://sc3.ft07.com/)，手機軟體推播服務） | 可选 |
-| `CUSTOM_WEBHOOK_URLS` | 自定義 Webhook（支持釘釘等，多個用逗號分隔） | 可選 |
-| `CUSTOM_WEBHOOK_BEARER_TOKEN` | 自定義 Webhook 的 Bearer Token（用於需要認證的 Webhook） | 可選 |
-| `SINGLE_STOCK_NOTIFY` | 單股推送模式：設為 `true` 則每分析完一隻股票立即推送 | 可選 |
-| `REPORT_TYPE` | 報告類型：`simple`(精簡) 或 `full`(完整)，Docker環境推薦設為 `full` | 可選 |
-| `ANALYSIS_DELAY` | 個股分析和大盤分析之間的延遲（秒），避免API限流，如 `10` | 可選 |
+| Secret 名稱                   | 說明                                                                     | 必填  |
+| ----------------------------- | ------------------------------------------------------------------------ | :---: |
+| `TELEGRAM_BOT_TOKEN`          | Telegram Bot Token（@BotFather 獲取）                                    | 可選  |
+| `TELEGRAM_CHAT_ID`            | Telegram Chat ID                                                         | 可選  |
+| `TELEGRAM_MESSAGE_THREAD_ID`  | Telegram Topic ID (用於發送到子話題)                                     | 可選  |
+| `DISCORD_WEBHOOK_URL`         | Discord Webhook URL                                                      | 可選  |
+| `DISCORD_BOT_TOKEN`           | Discord Bot Token（與 Webhook 二選一）                                   | 可選  |
+| `DISCORD_CHANNEL_ID`          | Discord Channel ID（使用 Bot 時需要）                                    | 可選  |
+| `EMAIL_SENDER`                | 發件人郵箱（如 `xxx@qq.com`）                                            | 可選  |
+| `EMAIL_PASSWORD`              | 郵箱授權碼（非登錄密碼）                                                 | 可選  |
+| `EMAIL_RECEIVERS`             | 收件人郵箱（多個用逗號分隔，留空則發給自己）                             | 可選  |
+| `WECHAT_WEBHOOK_URL`          | 企業微信 Webhook URL                                                     | 可選  |
+| `FEISHU_WEBHOOK_URL`          | 飛書 Webhook URL                                                         | 可選  |
+| `PUSHPLUS_TOKEN`              | PushPlus Token（[獲取地址](https://www.pushplus.plus)，國內推送服務）    | 可選  |
+| `SERVERCHAN3_SENDKEY`         | Server酱³ Sendkey（[獲取地址](https://sc3.ft07.com/)，手機軟體推播服務） | 可选  |
+| `CUSTOM_WEBHOOK_URLS`         | 自定義 Webhook（支持釘釘等，多個用逗號分隔）                             | 可選  |
+| `CUSTOM_WEBHOOK_BEARER_TOKEN` | 自定義 Webhook 的 Bearer Token（用於需要認證的 Webhook）                 | 可選  |
+| `SINGLE_STOCK_NOTIFY`         | 單股推送模式：設為 `true` 則每分析完一隻股票立即推送                     | 可選  |
+| `REPORT_TYPE`                 | 報告類型：`simple`(精簡) 或 `full`(完整)，Docker環境推薦設為 `full`      | 可選  |
+| `ANALYSIS_DELAY`              | 個股分析和大盤分析之間的延遲（秒），避免API限流，如 `10`                 | 可選  |
 
 > 至少配置一個渠道，配置多個則同時推送。更多配置請參考 [完整指南](full-guide.md)
 
@@ -114,14 +114,14 @@
 
 **其他配置**
 
-| Secret 名稱 | 說明 | 必填 |
-|------------|------|:----:|
-| `STOCK_LIST` | 自選股代碼，如 `600519,hk00700,AAPL,TSLA` | ✅ |
-| `TAVILY_API_KEYS` | [Tavily](https://tavily.com/) 搜索 API（新聞搜索） | 推薦 |
-| `BOCHA_API_KEYS` | [博查搜索](https://open.bocha.cn/) Web Search API（中文搜索優化，支持AI摘要，多個key用逗號分隔） | 可選 |
-| `BRAVE_API_KEYS` | [Brave Search](https://brave.com/search/api/) API（隱私優先，美股優化，多個key用逗號分隔） | 可選 |
-| `SERPAPI_API_KEYS` | [SerpAPI](https://serpapi.com/baidu-search-api?utm_source=github_daily_stock_analysis) 備用搜索 | 可選 |
-| `TUSHARE_TOKEN` | [Tushare Pro](https://tushare.pro/weborder/#/login?reg=834638 ) Token | 可選 |
+| Secret 名稱        | 說明                                                                                             | 必填  |
+| ------------------ | ------------------------------------------------------------------------------------------------ | :---: |
+| `STOCK_LIST`       | 自選股代碼，如 `600519,hk00700,AAPL,TSLA`                                                        |   ✅   |
+| `TAVILY_API_KEYS`  | [Tavily](https://tavily.com/) 搜索 API（新聞搜索）                                               | 推薦  |
+| `BOCHA_API_KEYS`   | [博查搜索](https://open.bocha.cn/) Web Search API（中文搜索優化，支持AI摘要，多個key用逗號分隔） | 可選  |
+| `BRAVE_API_KEYS`   | [Brave Search](https://brave.com/search/api/) API（隱私優先，美股優化，多個key用逗號分隔）       | 可選  |
+| `SERPAPI_API_KEYS` | [SerpAPI](https://serpapi.com/baidu-search-api?utm_source=github_daily_stock_analysis) 備用搜索  | 可選  |
+| `TUSHARE_TOKEN`    | [Tushare Pro](https://tushare.pro/weborder/#/login?reg=834638 ) Token                            | 可選  |
 
 #### 3. 啟用 Actions
 
@@ -133,7 +133,7 @@
 
 #### 5. 完成！
 
-默認每個工作日 **18:00（北京時間）** 自動執行
+默認每個工作日 **19:00（北京時間）** 自動執行
 
 ### 方式二：本地運行 / Docker 部署
 
@@ -156,7 +156,7 @@
 ⚠️ 等待回調至MA5附近再考慮
 
 ---
-生成時間: 18:00
+生成時間: 19:00
 ```
 
 ### 大盤復盤
@@ -187,10 +187,10 @@
 
 ### 啟動方式
 
-| 命令 | 說明 |
-|------|------|
-| `python main.py --serve` | 啟動 API 服務 + 執行一次完整分析 |
-| `python main.py --serve-only` | 僅啟動 API 服務，手動觸發分析 |
+| 命令                          | 說明                             |
+| ----------------------------- | -------------------------------- |
+| `python main.py --serve`      | 啟動 API 服務 + 執行一次完整分析 |
+| `python main.py --serve-only` | 僅啟動 API 服務，手動觸發分析    |
 
 - 訪問地址：`http://127.0.0.1:8000`
 - API 文檔：`http://127.0.0.1:8000/docs`
@@ -204,17 +204,17 @@
 
 ### API 接口
 
-| 接口 | 方法 | 說明 |
-|------|------|------|
-| `/api/v1/analysis/analyze` | POST | 觸發股票分析 |
-| `/api/v1/analysis/tasks` | GET | 查詢任務列表 |
-| `/api/v1/analysis/status/{task_id}` | GET | 查詢任務狀態 |
-| `/api/v1/history` | GET | 查詢分析歷史記錄 |
-| `/api/v1/backtest/run` | POST | 觸發回測 |
-| `/api/v1/backtest/results` | GET | 查詢回測結果（分頁） |
-| `/api/v1/backtest/performance` | GET | 獲取整體回測表現 |
-| `/api/v1/backtest/performance/{code}` | GET | 獲取單股回測表現 |
-| `/api/health` | GET | 健康檢查 |
+| 接口                                  | 方法 | 說明                 |
+| ------------------------------------- | ---- | -------------------- |
+| `/api/v1/analysis/analyze`            | POST | 觸發股票分析         |
+| `/api/v1/analysis/tasks`              | GET  | 查詢任務列表         |
+| `/api/v1/analysis/status/{task_id}`   | GET  | 查詢任務狀態         |
+| `/api/v1/history`                     | GET  | 查詢分析歷史記錄     |
+| `/api/v1/backtest/run`                | POST | 觸發回測             |
+| `/api/v1/backtest/results`            | GET  | 查詢回測結果（分頁） |
+| `/api/v1/backtest/performance`        | GET  | 獲取整體回測表現     |
+| `/api/v1/backtest/performance/{code}` | GET  | 獲取單股回測表現     |
+| `/api/health`                         | GET  | 健康檢查             |
 
 ## 項目結構
 
@@ -281,8 +281,8 @@ daily_stock_analysis/
   </a>
 </div>
 
-| 支付寶 (Alipay) | 微信支付 (WeChat) | Ko-fi |
-| :---: | :---: | :---: |
+|                      支付寶 (Alipay)                       |                         微信支付 (WeChat)                         |                                                      Ko-fi                                                       |
+| :--------------------------------------------------------: | :---------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: |
 | <img src="../sources/alipay.jpg" width="200" alt="Alipay"> | <img src="../sources/wechatpay.jpg" width="200" alt="WeChat Pay"> | <a href="https://ko-fi.com/mumu157" target="_blank"><img src="../sources/ko-fi.png" width="200" alt="Ko-fi"></a> |
 
 ## 貢獻
